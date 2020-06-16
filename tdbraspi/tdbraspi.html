@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="tdbraspi.css">
+	<script src="tdbraspi.js"></script>
+	<script src="https://kit.fontawesome.com/0e24e91b7b.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="dataDisplay()">
+	<div id="tableau">
+	<div>
+	<table>
+		<tr>
+		<th id="backToTableau">User<br><i class="fas fa-sort"></i></th>
+		<th>Port<br><i class="fas fa-sort"></i></th>
+		<th>Hostname</th>
+		<th>Basename</th>
+		<th>Basefolder</th>
+		<th>Pause<br><i class="fas fa-sort"></i></th>
+		<th>Created<br><i class="fas fa-sort"></i></th>
+		<th>Photos<br><i class="fas fa-sort"></i></th>
+		<th>Updated<br><i class="fas fa-sort"></i></th>
+		<th>Version</th>
+		<th>Measured Temp<br><i class="fas fa-sort"></i></th>
+		<th>Uptime</th>
+		<th>Feed Id</th>
+		<th>Upload<br><i class="fas fa-sort"></i></th>
+		</tr>
+		<tr onmouseover='moreInfo(0)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(0)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(0)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(1)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(1)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(1)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(2)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(2)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(2)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(3)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(3)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(3)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(4)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(4)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(4)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(5)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(5)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(5)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(6)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(6)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(6)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(7)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(7)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(7)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(8)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(8)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(8)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(9)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(9)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(9)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(10)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(10)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(10)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(11)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(11)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(11)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+		<tr onmouseover='moreInfo(12)' onmouseout='lessInfo()' onclick='document.location="#dfhInfoBox"'>
+			<td class="td1"></td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(12)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td class="td11"></td>
+			<td class="td12" onclick="displayUptime(12)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td13"></td>
+			<td class="td14"></td>
+		</tr>
+	</table>
+	</div>
+	<br>
+	<div id="infos" onclick='document.location="#backToTableau"'>
+		<div id="dfhInfoBox">
+			<h4>Hostname :<br><span class="hostnameValue"></span></h4>
+			<h3>df-h :<br><span id="df-h"></span></h3>
+		</div>
+		<div id="lsblkInfoBox">
+			<h4>Hostname :<br><span class="hostnameValue"></span></h4>
+			<h3>lsblk :<br><span id="lsblk"></span></h3>
+		</div>
+		<div id="operatorInfoBox">
+			<h4>Hostname :<br><span class="hostnameValue"></span></h4>
+			<h3>Operator :<br><span id="operator"></span></h3>
+		</div>
+	</div>
+	</div>
+	<p id="avertissement" onclick="document.location='#backToTableau'"><b>Suivi raspi, cette page est rechargée toutes les 1 min</b></p>
+	<div id="frontDiv">
+		<button onclick="closeFrontDiv()">X</button>
+		<h2>Hostname :<br><span class="hostnameValue"></span></h2>
+		<h3 id="photos"></h3>
+		<h3 id="uptime"><h3>
+	</div>
+</body>
+
+</html>
