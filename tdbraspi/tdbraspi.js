@@ -14,6 +14,7 @@ valeurs12 = document.getElementsByClassName('td12');
 valeurs13 = document.getElementsByClassName('td13');
 valeurs14 = document.getElementsByClassName('td14');
 hostname = document.getElementsByClassName('hostnameValue');
+uptime = document.getElementsByClassName('uptimeValue');
 
 function dataDisplay() {
 	for (var i = 0; i < data.length; i++) {
@@ -62,17 +63,28 @@ function displayPhotos(n) {
 
 function displayUptime(n) {
 	document.getElementById('frontDiv').style.display = "block";
-	hostname[3].innerHTML = data[n].hostname;
-	document.getElementById('uptime').innerHTML = "Uptime :" + "<br><br>" + data[n].uptime;
+	document.getElementById('uptime-données').style.display = "block";
 	document.getElementById('tableau').style.opacity = "0.4";
 	document.getElementById('avertissement').style.opacity = "0.4";
+	hostname[3].innerHTML = data[n].hostname;
+	var uptimeString = data[n].uptime;
+	for (var i = 0; i < uptimeString.length; i++) {
+		var findQuote1 = uptimeString.indexOf('"', startFind);
+		findQuote2 = uptimeString.indexOf('"', findQuote1 + 1);
+		findQuote3 = uptimeString.indexOf('"', findQuote2 + 1);
+		uptime[i].innerHTML = uptimeString.slice(findQuote1, findQuote2 + 1);
+		var startFind = findQuote3;
+	}
 }
 
 function closeFrontDiv() {
 	document.getElementById('frontDiv').style.display = "none";
+	document.getElementById('uptime-données').style.display = "none";
 	document.getElementById('tableau').style.opacity = "1";
 	document.getElementById('avertissement').style.opacity = "1";
 	document.getElementById('photos').innerHTML = "";
-	document.getElementById('uptime').innerHTML = "";
 	document.location="#backToTableau";
+	for (var i = 0; i <= 17; i++) {
+		uptime[i].innerHTML = "";
+	}
 }

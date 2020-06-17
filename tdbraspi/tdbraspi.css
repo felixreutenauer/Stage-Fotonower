@@ -1,4 +1,4 @@
-table {
+#tableau-données {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 25px;
@@ -24,7 +24,7 @@ tr:nth-child(odd) {
 	background-color: rgb(230,230,230);
 }
 
-tr:hover {
+#tableau-données tr:hover {
 	background-color: rgb(240,240,240);
 	cursor: pointer;
 }
@@ -71,7 +71,7 @@ h4, h2 {
 #frontDiv {
 	background-color: white;
 	width: 750px;
-	height: 500px;
+	height: 550px;
 	border: 2px solid grey;
 	border-radius: 25px;
 	margin-left: auto;
@@ -95,4 +95,16 @@ h4, h2 {
 	color: red;
 	background-color: lightgrey;
 	cursor: pointer;
+}
+
+#uptime-données {
+	border-collapse: collapse;
+	text-align: center;
+	font-family: arial;
+	display: none;
+}
+
+#uptime-données td {
+	border-bottom: 1px solid grey;
+	padding: 15px;
 }
