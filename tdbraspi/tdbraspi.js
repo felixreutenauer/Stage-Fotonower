@@ -15,9 +15,14 @@ valeurs13 = document.getElementsByClassName('td13');
 valeurs14 = document.getElementsByClassName('td14');
 hostname = document.getElementsByClassName('hostnameValue');
 uptime = document.getElementsByClassName('uptimeValue');
+photos = document.getElementsByClassName('photosValue');
+dfh = document.getElementsByClassName('df-h');
+lsblk = document.getElementsByClassName('lsblk');
+feedId = document.getElementsByClassName('feedId');
 
 function dataDisplay() {
-	for (var i = 0; i < data.length; i++) {
+	var i;
+	for (i = 0; i < data.length; i++) {
 		valeurs1[i].innerHTML = data[i].user_id;
 		valeurs2[i].innerHTML = data[i].port;
 		valeurs3[i].innerHTML = data[i].hostname;
@@ -25,40 +30,65 @@ function dataDisplay() {
 		valeurs5[i].innerHTML = data[i].basefolder;
 		valeurs6[i].innerHTML = data[i].pause;
 		valeurs7[i].innerHTML = data[i].created_at;
-		valeurs8[i].innerHTML = data[i].nbr_photo_prise.substring(0, 10) + "...";
 		valeurs9[i].innerHTML = data[i].dernier_signal;
 		valeurs10[i].innerHTML = data[i].version;
-		valeurs11[i].innerHTML = data[i].measure_temp;
-		valeurs12[i].innerHTML = data[i].uptime.substring(0, 10) + "...";
-		valeurs13[i].innerHTML = data[i].mtr_portfolio_id;
+		valeurs11[i].innerHTML = data[i].operator_ip;
+		valeurs12[i].innerHTML = data[i].measure_temp;
+		valeurs13[i].innerHTML = "uptime...";
 		valeurs14[i].innerHTML = data[i].nb_upload;
+		var photoString = data[i].nbr_photo_prise;
+		if (photoString.indexOf("total_pic") == -1) {
+			var findNumber = photoString.indexOf(",");
+			valeurs8[i].innerHTML = photoString.slice(0, findNumber + 5) + "...";
+		} else {
+			var findTotalPic = photoString.indexOf("total_pic");
+			findComma = photoString.indexOf(",");
+			valeurs8[i].innerHTML = photoString.slice(findTotalPic, findComma) + "...";
+		}
 	}
 }
 
 function moreInfo(n) {
-	hostname[0].innerHTML = data[n].hostname;
-	hostname[1].innerHTML = data[n].hostname;
-	hostname[2].innerHTML = data[n].hostname;
-	document.getElementById('dfhInfoBox').style.visibility = "visible";
-	document.getElementById('df-h').innerHTML = data[n].res_df_h;
-	document.getElementById('lsblkInfoBox').style.visibility = "visible";
-	document.getElementById('lsblk').innerHTML = data[n].lsblk;
-	document.getElementById('operatorInfoBox').style.visibility = "visible";
-	document.getElementById('operator').innerHTML = data[n].operator_ip;
+	if (n <= 6) {
+		document.getElementById('infoBox1').style.visibility = "visible";
+		dfh[0].innerHTML = data[n].res_df_h;
+		lsblk[0].innerHTML = data[n].lsblk;
+		feedId[0].innerHTML = data[n].mtr_portfolio_id;
+		hostname[0].innerHTML = data[n].hostname;
+	} else {
+		document.getElementById('infoBox2').style.visibility = "visible";
+		dfh[1].innerHTML = data[n].res_df_h;
+		lsblk[1].innerHTML = data[n].lsblk;
+		feedId[1].innerHTML = data[n].mtr_portfolio_id;
+		hostname[1].innerHTML = data[n].hostname;
+	}
 }
 
 function lessInfo() {
-	document.getElementById('dfhInfoBox').style.visibility = "hidden";
-	document.getElementById('lsblkInfoBox').style.visibility = "hidden";
-	document.getElementById('operatorInfoBox').style.visibility = "hidden";
+	document.getElementById('infoBox1').style.visibility = "hidden";
+	document.getElementById('infoBox2').style.visibility = "hidden";
 }
 
 function displayPhotos(n) {
 	document.getElementById('frontDiv').style.display = "block";
-	hostname[3].innerHTML = data[n].hostname;
-	document.getElementById('photos').innerHTML = "Photos :" + "<br><br>" + data[n].nbr_photo_prise;
 	document.getElementById('tableau').style.opacity = "0.4";
 	document.getElementById('avertissement').style.opacity = "0.4";
+	hostname[2].innerHTML = data[n].hostname;
+	var photoString = data[n].nbr_photo_prise;
+	var i;
+	for (i = 0; i < photoString.length; i++) {
+		if (photoString.indexOf("{") == -1) {
+			var findNumber = photoString.indexOf(",");
+			document.getElementById('nombrePhotos').innerHTML = photoString.slice(0, findNumber + 5);
+			document.getElementById('frontDiv').style.height = "150px";
+			document.getElementById('nombrePhotosDisplay').style.display = "block";
+		} else {
+			document.getElementById('photos-données').style.display = "block";
+			var findComma1 = photoString.indexOf(",", startFind + 1);
+			photos[i].innerHTML = photoString.slice(startFind + 3, findComma1);
+			var startFind = findComma1;
+		}
+	}
 }
 
 function displayUptime(n) {
@@ -66,25 +96,38 @@ function displayUptime(n) {
 	document.getElementById('uptime-données').style.display = "block";
 	document.getElementById('tableau').style.opacity = "0.4";
 	document.getElementById('avertissement').style.opacity = "0.4";
-	hostname[3].innerHTML = data[n].hostname;
+	hostname[2].innerHTML = data[n].hostname;
 	var uptimeString = data[n].uptime;
-	for (var i = 0; i < uptimeString.length; i++) {
-		var findQuote1 = uptimeString.indexOf('"', startFind);
-		findQuote2 = uptimeString.indexOf('"', findQuote1 + 1);
-		findQuote3 = uptimeString.indexOf('"', findQuote2 + 1);
-		uptime[i].innerHTML = uptimeString.slice(findQuote1, findQuote2 + 1);
-		var startFind = findQuote3;
+	var i;
+	for (i = 0; i < uptimeString.length; i++) {
+		if (uptimeString.indexOf("\\") == -1) {
+			var findComma1 = uptimeString.indexOf(",", startFind);
+			var findComma2 = uptimeString.indexOf(",", findComma1 + 1);
+			uptime[i].innerHTML = uptimeString.slice(findComma1 - 1, findComma2);
+			var startFind = findComma2;
+		} else {
+			var findQuote1 = uptimeString.indexOf('"', startFind);
+			findQuote2 = uptimeString.indexOf('"', findQuote1 + 1);
+			findQuote3 = uptimeString.indexOf('"', findQuote2 + 1);
+			uptime[i].innerHTML = uptimeString.slice(findQuote1, findQuote2);
+
+		}
 	}
 }
 
 function closeFrontDiv() {
 	document.getElementById('frontDiv').style.display = "none";
 	document.getElementById('uptime-données').style.display = "none";
+	document.getElementById('photos-données').style.display = "none";
+	document.getElementById('nombrePhotosDisplay').style.display = "none";
+	document.getElementById('frontDiv').style.height = "550px";
 	document.getElementById('tableau').style.opacity = "1";
 	document.getElementById('avertissement').style.opacity = "1";
-	document.getElementById('photos').innerHTML = "";
-	document.location="#backToTableau";
+	document.getElementById('nombrePhotos').innerHTML = "";
 	for (var i = 0; i <= 17; i++) {
 		uptime[i].innerHTML = "";
+	}
+	for (var i = 0; i <= 23; i++) {
+		photos[i].innerHTML = "";
 	}
 }
