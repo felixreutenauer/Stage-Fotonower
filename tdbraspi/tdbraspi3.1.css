@@ -159,10 +159,10 @@ h3, h4, h2 {
 }
 
 .panel {
-	visibility: hidden;
+	visibility: visible;
 }
 
-.minusSign {
+.plusSign {
 	display: none;
 }
 
@@ -199,13 +199,13 @@ h3, h4, h2 {
 	background-color: grey;
 }
 
-.tooltip {
+.tooltip, .tooltip2, .tooltip3 {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted blue;
 }
 
-.tooltip .tooltiptext {
+.tooltip .tooltiptext, .tooltip3 .tooltiptext3 {
   display: none;
   width: 200px;
   background-color: lightblue;
@@ -231,6 +231,44 @@ h3, h4, h2 {
   border-color: transparent lightblue transparent transparent;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext, .tooltip2:hover .tooltiptext2, .tooltip3:hover .tooltiptext3 {
   display: block;
+}
+
+.tooltip2 .tooltiptext2 {
+  display: none;
+  width: 120px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 3px 3px 5px 0 rgb(180,180,180);
+  border-radius: 10px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip2 .tooltiptext2::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: grey transparent transparent transparent;
+}
+
+.infoTitle {
+	color: blue;
+}
+
+.tooltip3 .tooltiptext3 {
+  top: -5px;
+  left: 105%;
+  width: 400px;
 }
