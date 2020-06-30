@@ -1,0 +1,277 @@
+body {
+	font-family: arial;
+}
+
+#tableau-données {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+#tableau-données th {
+	padding: 15px 20px;
+	background-color: lightblue;
+	font-size: 20px;
+}
+
+#tableau-données td {
+	border-top: 1px solid grey;
+	padding: 10px 20px;
+}
+
+tr:nth-child(odd) {
+	background-color: rgb(230,230,230);
+}
+
+#tableau-données tr:hover {
+	background-color: rgb(240,240,240);
+	cursor: pointer;
+}
+
+#tableau {
+	overflow-x: auto;
+	overflow-y: hidden;
+	display: flex;
+	flex-direction: row;
+}
+
+#infoBox1, #infoBox2 {
+	visibility: hidden;
+	border: 2px solid grey;
+	width: 300px;
+	height: 500px;
+	margin: 0 10px;
+	background-color: white;
+}
+
+h3, h4, h2 {
+	padding: 5px;
+}
+
+.hostnameDesc {
+	text-align: center;
+	color: grey;
+}
+
+.infoDesc {
+	color: blue;
+	text-align: center;
+}
+
+#avertissement {
+	color: red;
+	cursor: pointer;
+}
+
+#infosDiv {
+	margin-top: 25px;
+}
+
+#infos {
+	cursor: pointer;
+	margin-top: 53px;
+	height: 672px;
+	background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F18%2FLeft_arrow.svg%2F434px-Left_arrow.svg.png&f=1&nofb=1');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50px 50px;
+}
+
+#frontDiv {
+	background-color: white;
+	width: 750px;
+	height: 550px;
+	border: 2px solid grey;
+	border-radius: 25px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	bottom: 780px;
+	z-index: +1;
+	display: none;
+	box-shadow: 5px 5px 5px 0 rgb(180,180,180);
+}
+
+#frontDiv button {
+	float:right;
+	width: 50px;
+	height: 50px;
+	border: 2px solid grey;
+	border-radius: 20px;
+	font-size: 25px;
+}
+
+#frontDiv button:hover {
+	color: red;
+	background-color: lightgrey;
+	cursor: pointer;
+}
+
+#uptime-données, #photos-données {
+	border-collapse: collapse;
+	text-align: center;
+	display: none;
+}
+
+#uptime-données th {
+	border-bottom: 2px solid grey;
+	background-color: lightblue;
+	font-size: 20px;
+	padding: 5px 10px;
+}
+
+#uptime-données td {
+	border-bottom: 1px solid grey;
+	padding: 10px 5px;
+}
+
+.uptimePanel {
+	visibility: hidden;
+}
+
+#tableSize {
+	visibility: hidden;
+}
+
+#photos-données td {
+	padding: 10px 20px;
+}
+
+.espaceBlanc, .espaceBlancBorder {
+	visibility: hidden;
+	border-left: 2px solid grey;
+	border-right: 2px solid grey;
+}
+
+#nombrePhotosDisplay, #noData {
+	display: none;
+}
+
+.borderTop {
+	border-top: 2px solid grey;
+}
+
+.borderBottom {
+	border-bottom: 2px solid grey;
+}
+
+#photos-données tr:nth-child(odd) {
+	background-color: lightblue;
+}
+
+.panel {
+	visibility: visible;
+}
+
+.plusSign {
+	display: none;
+}
+
+.minusSign, .plusSign {
+	float: right;
+}
+
+#raspiDiv {
+	margin-right: 10px;
+	margin-top: 25px;
+}
+
+#raspiDiv2 {
+	border: 2px solid grey;
+	text-align: center;
+	background-color: lightblue;
+	margin-top: 53px;
+}
+
+#raspiDiv button {
+	background-color: lightgrey;
+	cursor: pointer;
+	padding: 5px 10px;
+	width: 25px;
+	height: 25px;
+	border: none;
+	outline: none;
+	transition: 0.4s;
+	visibility: hidden;
+	overflow: hidden;
+}
+
+#raspiDiv button:hover {
+	background-color: grey;
+}
+
+.tooltip, .tooltip2, .tooltip3 {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted blue;
+}
+
+.tooltip .tooltiptext, .tooltip3 .tooltiptext3 {
+  display: none;
+  width: 200px;
+  background-color: lightblue;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 3px 3px 5px 0 rgb(180,180,180);
+  border-radius: 10px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: +1;
+  top: -5px;
+  left: 110%;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent lightblue transparent transparent;
+}
+
+.tooltip:hover .tooltiptext, .tooltip2:hover .tooltiptext2, .tooltip3:hover .tooltiptext3 {
+  display: block;
+}
+
+.tooltip2 .tooltiptext2 {
+  display: none;
+  width: 120px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  box-shadow: 3px 3px 5px 0 rgb(180,180,180);
+  border-radius: 10px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip2 .tooltiptext2::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: grey transparent transparent transparent;
+}
+
+.infoTitle {
+	color: blue;
+}
+
+.tooltip3 .tooltiptext3 {
+  top: -5px;
+  left: 105%;
+  width: 400px;
+}

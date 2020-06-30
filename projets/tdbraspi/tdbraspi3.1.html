@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="tdbraspi3.1.css">
+	<script src="https://kit.fontawesome.com/0e24e91b7b.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="dataDisplay()">
+	<div id="tableau">
+		<div id ="raspiDiv" onmouseover="showMenu()" onmouseout="hideMenu()">
+			<div id="raspiDiv2">
+			<span class="menuArrow"><i class="fas fa-arrow-right"></i></span>
+			<button class="menuButton" onclick="displayPanel(0)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(1)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(2)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(3)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(4)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(5)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(6)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(7)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(8)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(9)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(10)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(11)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(12)"><span class="userId"></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<button class="menuButton" onclick="displayPanel(13)"><span><i>ALL</i></span><span class="plusSign"><i class="fas fa-plus"></i></span><span class="minusSign"><i class="fas fa-minus"></i></span></button>
+			<span class="menuArrow"><i class="fas fa-arrow-right"></i></span>
+			</div>
+		</div>
+	<div>
+	<table id="tableau-données">
+		<tr>
+			<th id="backToTableau">User <i class="fas fa-sort"></i></th>
+			<th>Port <i class="fas fa-sort"></i></th>
+			<th>Hostname</th>
+			<th>Basename</th>
+			<th>Basefolder</th>
+			<th>Pause <i class="fas fa-sort"></i></th>
+			<th>Created <i class="fas fa-sort"></i></th>
+			<th>Photos <i class="fas fa-sort"></i></th>
+			<th>Updated <i class="fas fa-sort"></i></th>
+			<th>Version</th>
+			<th>Operator</th>
+			<th>°C <i class="fas fa-sort"></i></th>
+			<th>Uptime</th>
+			<th>Upload <i class="fas fa-sort"></i></th>
+		</tr>
+		<tr class="panel borderTop" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(0)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(0)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(1)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(1)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(2)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(2)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(3)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(3)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(4)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(4)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(5)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(5)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(6)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(6)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(7)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(7)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(8)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(8)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(9)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(9)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(10)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(10)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(11)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(11)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr class="panel" onclick='document.location="#infosDiv"'>
+			<td>
+				<div class="tooltip3">
+					<span class="td1"></span>
+					<b><span class="tooltiptext3">
+						<span class="infoTitle">df-h : </span><span class="dfhTooltips"></span><br>
+						<span class="infoTitle">lsblk : </span><span class="lsblkTooltips"></span><br>
+						<span class="infoTitle">Feed Id : </span><span class="feedIdTooltips"></span><br>
+					</span></b>
+				</div>
+			</td>
+			<td class="td2"></td>
+			<td class="td3"></td>
+			<td class="td4"></td>
+			<td class="td5"></td>
+			<td class="td6"></td>
+			<td class="td7"></td>
+			<td class="td8" onclick="displayPhotos(12)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td9"></td>
+			<td class="td10"></td>
+			<td>
+				<div class="tooltip">
+				<span class="td11"></span>
+				<b><span class="tooltiptext operatorIpTooltips"></span></b>
+				</div>
+			</td>
+			<td class="td12"></td>
+			<td class="td13" onclick="displayUptime(12)" onmouseover='this.style.color = "orange"' onmouseout='this.style.color = "black"'></td>
+			<td class="td14"></td>
+		</tr>
+		<tr id="tableSize" class="borderTop">
+			<td>tttttttttttttt</td>
+			<td>tttttttttttttt</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>tttttttttttttttttt</td>
+			<td>ttttttttttttttttttttt</td>
+			<td>tttttttttttttttttttt</td>
+			<td>ttttttttttttttttttttttt</td>
+			<td></td>
+			<td></td>
+			<td>ttttttttt</td>
+			<td></td>
+			<td>tttttttttttttttttttt</td>
+		</tr>
+		<tr>
+		</tr>
+	</table>
+	</div>
+	<br>
+		<div id="infosDiv">
+			<div id="infos" onclick='document.location="#raspiDiv"'>
+				<div id="infoBox1">
+					<h4 class="hostnameDesc">Hostname : <span class="hostnameValue"></span></h4>
+					<h3 class="infoDesc">df-h :</h3>
+					<h3 class="df-h"></h3>
+					<h3 class="infoDesc">lsblk :</h3>
+					<h3 class="lsblk"></h3>
+					<h3 class="infoDesc">Feed Id :</h3>
+					<h3 class="feedId"></h3>
+				</div>
+				<!--<div id="infoBox2">
+					<h4>Hostname : <span class="hostnameValue"></span></h4>
+					<h3>df-h :<br><span class="df-h"></span></h3>
+					<h3>lsblk :<br><span class="lsblk"></span></h3>
+					<h3>Feed Id :<br><span class="feedId"></span></h3>
+				</div>-->
+			</div>
+		</div>
+	</div>
+	<p id="avertissement" onclick="document.location='#backToTableau'"><b>Suivi raspi, cette page est rechargée toutes les 1 min</b></p>
+	<div id="frontDiv">
+		<button onclick="closeFrontDiv()">X</button>
+		<h2 class="hostnameDesc">Hostname : <span class="hostnameValue"></span></h2>
+		<h3 id="nombrePhotosDisplay">Photos : <span id="nombrePhotos"></span></h3>
+		<h3 id="noData">Uptime : No data available</h3>
+		<table id="photos-données">
+			<tr>
+				<td class="photosValue borderTop"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue borderTop"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+	<!--gps-->
+				<td>
+				<div class="tooltip2">
+				<span class="photosValue"></span>
+				<b><span id="gpsTooltip" class="tooltiptext2"></span></b>
+				</div>
+				</td>
+			</tr>
+			<tr>
+	<!--network traffic-->
+				<td>
+				<div class="tooltip2">
+				<span class="photosValue"></span>
+				<b><span id="networkTrafficTooltip" class="tooltiptext2"></span></b>
+				</div>
+				</td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue"></td>
+			</tr>
+			<tr>
+				<td class="photosValue borderBottom"></td>
+				<td class="espaceBlanc"></td>
+				<td class="photosValue borderBottom"></td>
+			</tr>
+			<tr>
+				<td class="espaceBlanc">tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</td>
+				<td class="espaceBlanc">tttttttttttt</td>
+				<td class="espaceBlanc">tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt</td>
+			</tr>
+		</table>
+		<table id="uptime-données">
+			<tr>
+				<th class="uptimeValue"></th>
+				<th class="uptimeValue"></th>
+				<th class="uptimeValue"></th>
+				<th class="uptimeValue"></th>
+				<th class="uptimeValue"></th>
+				<th class="uptimeValue"></th>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+			<tr class="uptimePanel">
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+				<td class="uptimeValue"></td>
+			</tr>
+		</table>
+	</div>
+	<script src="tdbraspi3.1.js"></script>
+</body>
+
+</html>
